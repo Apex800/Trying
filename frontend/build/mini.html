@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("./bckr.png");
+        background-size: cover;
+      }
+
+      .main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        margin-top: 5%;
+      }
+
+      .decor {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .decor i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        font-size: 40px;
+        margin: 2%;
+        padding: 10%;
+        border: 1px solid rgba(59, 55, 55, 0.468);
+        border-radius: 50%;
+        height: 10vh;
+        width: 10vh;
+        box-shadow: -2px 2px rgb(77, 82, 82);
+        color: black;
+      }
+
+      .decor i:hover {
+        cursor: pointer;
+        border: 2px solid black;
+      }
+
+      .decor p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div
+        class="notice decor"
+        onclick="window.location.href='folder/example.html';"
+      >
+        <i class="fa-solid fa-envelope"></i>
+        <p>Notice</p>
+      </div>
+      <div
+        class="news decor"
+        onclick="window.location.href='folder/example.html';"
+      >
+        <i class="fa-solid fa-newspaper"></i>
+        <p>Chats</p>
+      </div>
+      <div
+        class="attendence decor"
+        onclick="window.location.href='folder/example.html';"
+      >
+        <i class="fa-solid fa-school-circle-check"></i>
+        <p>Attendance</p>
+      </div>
+      <div
+        class="marks decor"
+        onclick="window.location.href='folder/example.html';"
+      >
+        <i class="fa-solid fa-file-invoice"></i>
+        <p>Marks</p>
+      </div>
+      <div
+        class="logout decor"
+        onclick="window.location.href='folder/example.html';"
+      >
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <p>Logout</p>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/3e8e437c42.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
