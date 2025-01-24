@@ -45,7 +45,9 @@ const SideDrawer = () => {
   } = ChatState();
   const history = useHistory();
   const toast = useToast();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  
+  
+  
 
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
@@ -53,34 +55,27 @@ const SideDrawer = () => {
   };
 
   const handleSearch = async () => {
-    if (!search) {
-      toast({
-        title: "Please Enter something in search",
-        status: "warning",
-        duration: 5000,
-        isClosable: true,
-        position: "top-left",
-      });
-      return;
-    }
-
     try {
       setLoading(true);
-
+  
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       };
-
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
-
+  
+      const { data } = await axios.get(
+        `/api/user${search ? `?search=${search}` : ""}`, // Fetch all users if search is empty
+        config
+      );
+  
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
+      setLoading(false);
       toast({
-        title: "Error Occured!",
-        description: "Failed to Load the Search Results",
+        title: "Error Occurred!",
+        description: "Failed to load the user list.",
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -88,6 +83,10 @@ const SideDrawer = () => {
       });
     }
   };
+  const { isOpen, onOpen, onClose } = useDisclosure({
+    onOpen: handleSearch, // Fetch all users when the drawer opens
+  });
+  
 
   const accessChat = async (userId) => {
     console.log(userId);
